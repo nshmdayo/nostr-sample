@@ -1,17 +1,17 @@
 # Nostr Sample Relay
 
-Go言語で実装されたNostrリレーサーバーのサンプルです。
+A sample Nostr relay server implemented in Go.
 
-## 特徴
+## Features
 
-- WebSocketベースのNostrプロトコル実装
-- 基本的なNIP（Nostr Implementation Possibilities）をサポート
-- 署名検証
-- イベントの保存と配信
-- サブスクリプション管理
-- リレー情報の提供
+- WebSocket-based Nostr protocol implementation
+- Support for basic NIPs (Nostr Implementation Possibilities)
+- Signature verification
+- Event storage and distribution
+- Subscription management
+- Relay information provision
 
-## サポートしているNIP
+## Supported NIPs
 
 - NIP-01: Basic protocol flow description
 - NIP-02: Contact List and Petnames
@@ -23,31 +23,31 @@ Go言語で実装されたNostrリレーサーバーのサンプルです。
 - NIP-20: Command Results
 - NIP-22: Event `created_at` Limits
 
-## 必要な環境
+## Requirements
 
-- Go 1.21以上
+- Go 1.21 or higher
 
-## インストールと実行
+## Installation and Usage
 
-### 1. 依存関係のインストール
+### 1. Install dependencies
 
 ```bash
 go mod download
 ```
 
-### 2. サーバーの起動
+### 2. Start the server
 
 ```bash
 go run main.go
 ```
 
-サーバーは以下のエンドポイントで起動します：
+The server will start on the following endpoints:
 - WebSocket: `ws://localhost:8080/ws`
-- リレー情報: `http://localhost:8080/`
+- Relay info: `http://localhost:8080/`
 
-### 3. テストクライアントの実行
+### 3. Run the test client
 
-別のターミナルでテストクライアントを実行できます：
+You can run the test client in a separate terminal:
 
 ```bash
 go run client/main.go
@@ -55,59 +55,59 @@ go run client/main.go
 
 ## API
 
-### WebSocket エンドポイント
+### WebSocket Endpoint
 
 `ws://localhost:8080/ws`
 
-サポートしているメッセージタイプ：
+Supported message types:
 
-- `EVENT`: イベントの投稿
-- `REQ`: イベントの購読
-- `CLOSE`: 購読の終了
+- `EVENT`: Event posting
+- `REQ`: Event subscription
+- `CLOSE`: Subscription termination
 
-### リレー情報
+### Relay Information
 
 `GET http://localhost:8080/`
 
-- ブラウザ: HTML形式でリレー情報を表示
-- `Accept: application/nostr+json`: JSON形式でリレー詳細情報を返却
+- Browser: Display relay information in HTML format
+- `Accept: application/nostr+json`: Return detailed relay information in JSON format
 
-## Dockerを使用した実行
+## Running with Docker
 
-### ビルド
+### Build
 
 ```bash
 docker build -t nostr-relay .
 ```
 
-### 実行
+### Run
 
 ```bash
 docker run -p 8080:8080 nostr-relay
 ```
 
-## 開発
+## Development
 
-### プロジェクト構造
+### Project Structure
 
 ```
 .
-├── main.go          # メインサーバー実装
+├── main.go          # Main server implementation
 ├── client/
-│   └── main.go      # テストクライアント
-├── go.mod           # Go modules設定
-├── go.sum           # 依存関係のハッシュ
-├── Dockerfile       # Docker設定
-└── README.md        # このファイル
+│   └── main.go      # Test client
+├── go.mod           # Go modules configuration
+├── go.sum           # Dependency hashes
+├── Dockerfile       # Docker configuration
+└── README.md        # This file
 ```
 
-### 主要コンポーネント
+### Key Components
 
-- `NostrServer`: メインサーバー構造体
-- `Client`: WebSocket接続を管理
-- `Subscription`: クライアントのサブスクリプションを管理
-- イベントフィルタリングとブロードキャスト機能
+- `NostrServer`: Main server struct
+- `Client`: Manages WebSocket connections
+- `Subscription`: Manages client subscriptions
+- Event filtering and broadcast functionality
 
-## ライセンス
+## License
 
-このプロジェクトはサンプル実装であり、学習目的で使用してください。
+This project is a sample implementation for educational purposes.
