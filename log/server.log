@@ -1,0 +1,4 @@
+2025/08/16 12:00:45 Nostr relay server starting on port :8080
+2025/08/16 12:00:45 WebSocket endpoint: ws://localhost:8080/ws
+2025/08/16 12:00:45 Relay info: http://localhost:8080/
+2025/08/16 12:00:45 Server failed to start:listen tcp :8080: bind: address already in use
